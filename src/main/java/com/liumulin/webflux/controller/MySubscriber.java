@@ -21,8 +21,8 @@ public class MySubscriber implements Subscriber<Integer> {
         this.subscription.request(3);
     }
 
-    // 订阅者每接收一次订阅消息数据时，该方法会被发布者自动调用一次故，
-    // 有多少次数据接收，该方法就会被执行多少次
+    // 订阅者每接收一次订阅消息数据时，该方法会被发布者自动调用一次，
+    // 因此有多少次数据接收，该方法就会被执行多少次
     @Override
     public void onNext(Integer item) {
         // 处理接收到的消息数据
