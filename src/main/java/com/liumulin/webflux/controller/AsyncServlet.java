@@ -34,6 +34,13 @@ public class AsyncServlet extends HttpServlet {
     private void doSomething(AsyncContext ac, ServletRequest request, ServletResponse response) {
         // 暂停一会儿线程
         try { TimeUnit.SECONDS.sleep(5); } catch (InterruptedException e) { e.printStackTrace(); }
+        try {
+            response.getWriter().append("done");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 业务代码处理完毕，通知结束
+        ac.complete();
     }
 
 }

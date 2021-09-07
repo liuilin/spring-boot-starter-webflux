@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mongo_flux
+  data:
+    mongodb:
+      #      uri: mongodb://localhost:27017/admin
+      host: localhost
+      port: 27017
+      database: admin
+      username: lin
+      password: lin
