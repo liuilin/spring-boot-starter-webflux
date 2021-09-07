@@ -2,6 +2,7 @@ package com.liumulin.webflux.controller;
 
 import com.liumulin.webflux.model.Student;
 import com.liumulin.webflux.repository.StudentRepository;
+import com.liumulin.webflux.util.ValidateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -9,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import javax.validation.Valid;
 
 /**
  * @author liuqiang
@@ -38,13 +41,15 @@ public class StudentController {
     // 为添加操作，底层执行 insert into 语句；若参数对象的 id 属性不为 Null，则 save()为修改操
     // 作，底层执行 update 语句。
     @PostMapping("/save")
-    public Mono<Student> saveStudent(@RequestBody Student student) {
+    public Mono<Student> saveStudent(@Valid @RequestBody Student student) {
+        ValidateUtils.validateName(student.getName());
         return studentRepository.save(student);
     }
 
     // 修改处理器（提交 Form）
     @PostMapping("/save2")
-    public Mono<Student> saveStudent2(Student student) {
+    public Mono<Student> saveStudent2(@Valid Student student) {
+        ValidateUtils.validateName(student.getName());
         return studentRepository.save(student);
     }
 

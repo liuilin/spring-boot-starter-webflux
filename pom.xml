@@ -57,13 +57,21 @@
             <scope>provided</scope>
         </dependency>
 
-      <!--  &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-web &ndash;&gt;
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.3.9</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.1.0.Final</version>
         </dependency>
--->
+
+
+        <!--  &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-web &ndash;&gt;
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-web</artifactId>
+              <version>5.3.9</version>
+          </dependency>
+  -->
 
     </dependencies>
 
