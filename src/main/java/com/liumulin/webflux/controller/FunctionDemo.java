@@ -11,7 +11,7 @@ public class FunctionDemo {
     public static void main(String[] args) {
         // 断言函数接口
 //        Predicate<Integer> predicate = i -> i > 0;
-        // 和上面相同，优势是不用再写泛型
+        // 和上面相同，优势是不用再写泛型.
         IntPredicate predicate = i -> i > 0;
         System.out.println(predicate.test(3));
 
