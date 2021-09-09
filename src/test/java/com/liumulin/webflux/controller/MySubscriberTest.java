@@ -15,7 +15,7 @@ class MySubscriberTest {
             // 定义订阅者，消费的消息为 Integer 数据
             MySubscriber subscriber = new MySubscriber();
             // 创建发布者与订阅者间的订阅关系
-            publisher.subscribe((Flow.Subscriber<? super Integer>) subscriber);
+//            publisher.subscribe((Flow.Subscriber<? super Integer>) subscriber);
             // 生产10条消息并发布
             for (int i = 0; i < 10; i++) {
                 // submit() 是一个 block 方法，当发布过系统默认数量的消息后该方法阻塞。
