@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.NotBlank;
 
 @Data
-@Document("t_student ")
+@Document("t_student")
 public class Student {
     @Id
     private String id;
