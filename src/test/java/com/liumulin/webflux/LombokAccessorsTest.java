@@ -1,6 +1,8 @@
 package com.liumulin.webflux;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -15,6 +17,7 @@ public class LombokAccessorsTest {
 
 @Data
 @Accessors(chain = true)
+//@Builder
 class User {
     private Integer id;
     private String name;
@@ -25,7 +28,8 @@ class User {
         User lin = new User()
                 .setName("Lin")
                 .setAge(18); // 返回对象
-        System.out.println(lin.name);
+//        User lin = User.builder().name("nice").age(10).build();
+        System.out.println(lin);
     }
 
 }
