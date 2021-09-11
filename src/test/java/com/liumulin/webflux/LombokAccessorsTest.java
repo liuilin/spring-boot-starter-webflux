@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
+ * 推荐使用：@Accessors(chain = true)
+ *
  * @author liuqiang
  * @since 2021-09-11
  */
