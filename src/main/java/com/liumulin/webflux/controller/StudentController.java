@@ -1,9 +1,13 @@
 package com.liumulin.webflux.controller;
 
+import com.liumulin.webflux.exception.TweetNotFoundException;
 import com.liumulin.webflux.model.Student;
+import com.liumulin.webflux.payload.ErrorResponse;
 import com.liumulin.webflux.repository.StudentRepository;
 import com.liumulin.webflux.util.ValidateUtils;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +24,9 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/student")
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class StudentController {
-
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
     // 以数组形式一次性返回数据
     @GetMapping("/all")
@@ -88,8 +91,10 @@ public class StudentController {
     public Mono<ResponseEntity<Void>> deleteStatStudent(@PathVariable("id") String id) {
         return studentRepository.findById(id)
                 .flatMap(stu -> studentRepository.delete(stu)
-                        .then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
-                ).defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+                        .then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK))))
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+//                ).defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+
     }
 
     /**
@@ -114,7 +119,15 @@ public class StudentController {
     public Mono<ResponseEntity<Student>> getById(@PathVariable("id") String id) {
         return studentRepository.findById(id)
                 .map(stu -> new ResponseEntity<>(stu, HttpStatus.OK))
+//                .map(ResponseEntity::ok)
                 .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//        Mono.just(tweetId)
+//                .flatMap(tweetRepository::findById)
+//                .map(tweet -> new ResponseEntity(tweet, HttpStatus.OK))
+//                .switchIfEmpty(Mono.error(new TweetNotFoundException(tweetId)));
+//        return tweetRepository.findById(tweetId)
+//                .map(savedTweet -> ResponseEntity.ok(savedTweet))
+//                .switchIfEmpty(Mono.error(new TweetNotFoundException(tweetId)));
     }
 
     // 根据年龄上下限查询：一次性返回
@@ -131,6 +144,23 @@ public class StudentController {
             @PathVariable("below") int below,
             @PathVariable("top") int top) {
         return studentRepository.findByAgeBetween(below, top);
+    }
+
+
+
+
+     /*
+        Exception Handling Examples (These can be put into a @ControllerAdvice to handle exceptions globally)
+    */
+
+    @ExceptionHandler(DuplicateKeyException.class)
+    public ResponseEntity handleDuplicateKeyException(DuplicateKeyException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse("A Tweet with the same text already exists"));
+    }
+
+    @ExceptionHandler(TweetNotFoundException.class)
+    public ResponseEntity handleTweetNotFoundException(TweetNotFoundException ex) {
+        return ResponseEntity.notFound().build();
     }
 
 }
