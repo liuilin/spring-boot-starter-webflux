@@ -74,9 +74,9 @@ public class StudentController {
      * 封装了响应码不携带任何数据，所以泛型为 Void。响应码只能采用 HttpStatus 枚举类型
      * 常量表示，这是 ResponseEntity 的构造器所要求的。
      *   为什么做映射时使用 flatMap()，不使用 map()？首先这两个方法都是 Mono 的方法，不
-     * 是 Stream 的方法，与 Stream 的两个同名方法无关，但均是做映射的。若需要对对象数
-     * 据先执行操作后再做映射，则使用 flatMap()；若纯粹是一种数据映射，没有数据操作，
-     * 则使用 map()。
+     * 是 Stream 的方法，与 Stream 的两个同名方法无关，但均是做映射的。
+     * 若需要对对象数据先执行操作后再做映射，则使用 flatMap()；
+     * 若纯粹是一种数据映射，没有数据操作，则使用 map()。
      *   在 Mono 的访求中，对于没有返回值的方法，若想为其添加返回值，则可链式调用 then()
      * 反应式 Web 开发框架 WebFlux方法，由 then()方法返回想返回的值。对于本例，由于 Spring-Data-JPA 的 delete()方法没
      * 有返回值，所以这里使用 then()为其添加返回值。
@@ -84,7 +84,7 @@ public class StudentController {
      * @param id
      * @return
      */
-    @DeleteMapping("/del_stat/{id}")
+    @DeleteMapping("/delete/state/{id}")
     public Mono<ResponseEntity<Void>> deleteStatStudent(@PathVariable("id") String id) {
         return studentRepository.findById(id)
                 .flatMap(stu -> studentRepository.delete(stu)

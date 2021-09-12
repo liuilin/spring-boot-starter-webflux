@@ -9,5 +9,5 @@ spring:
       host: localhost
       port: 27017
       database: admin
-      username: lin
-      password: lin
+      username: root
+      password: root
