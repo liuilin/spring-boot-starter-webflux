@@ -31,7 +31,7 @@ public class SomeHandler {
     public String commonDemo2() {
         log.info("start...");
         String something = doSomething("耗时操作");
-        log.info("start...");
+        log.info("done...");
         return something;
     }
 
@@ -63,7 +63,7 @@ public class SomeHandler {
         Flux<String> flux = Flux.fromStream(hobby.stream().map(i -> {
             // 暂停一会儿线程
             try {
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
