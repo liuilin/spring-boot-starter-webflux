@@ -80,7 +80,7 @@ public class SomeHandler {
     public Flux<Tuple2<String, String>> fluxDemo4(@RequestParam List<String> hobby) {
         log.info("flux-start");
         Flux<String> flux = Flux.fromStream(hobby.stream().map(i -> {
-            // 暂停一会儿线程。
+            // 暂停一会儿线程
             try {
                 TimeUnit.SECONDS.sleep(4);
             } catch (InterruptedException e) {
