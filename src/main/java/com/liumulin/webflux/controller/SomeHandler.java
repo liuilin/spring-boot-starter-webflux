@@ -45,7 +45,7 @@ public class SomeHandler {
     }
 
     // 数组转 Flux
-    // 而 Flux 表示，处理器返回的数据为 0-多个
+    // 而 Flux 表示，处理器返回的数据为 0-多个。
     @GetMapping("/flux")
     public Flux<String> fluxDemo(@RequestParam String[] hobby) {
         Flux<String> stringFlux = Flux.fromArray(hobby);
