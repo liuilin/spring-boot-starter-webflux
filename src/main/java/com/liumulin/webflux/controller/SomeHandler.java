@@ -22,7 +22,7 @@ public class SomeHandler {
     }
 
     // 访问 mono 处理器
-    // Mono 表示，处理器返回的数据为 0-1 个
+    // Mono 表示，处理器返回的数据为 0-1 个.
     @GetMapping("/mono")
     public Mono<String> monoDemo() {
         return Mono.just("webflux-mono");
