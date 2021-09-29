@@ -112,7 +112,8 @@ public class StudentController {
                     return studentRepository.save(stu);
                 })
                 .map(stu -> new ResponseEntity<>(stu, HttpStatus.OK))
-                .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+                .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND))
+                ;
     }
 
     @GetMapping("/getById/{id}")
