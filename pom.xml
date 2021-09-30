@@ -13,9 +13,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-starter-webflux</name>
     <description>spring-boot-starter-webflux</description>
+
     <properties>
         <java.version>11</java.version>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -65,6 +68,7 @@
         </dependency>
 
 
+
         <!--  &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-web &ndash;&gt;
           <dependency>
               <groupId>org.springframework</groupId>
@@ -73,16 +77,20 @@
           </dependency>
   -->
         <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+<!--        <dependency>-->
+<!--            <groupId>org.mapstruct</groupId>-->
+<!--            <artifactId>mapstruct</artifactId>-->
+<!--            <version>1.4.2.Final</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>1.4.2.Final</version>
+            <version>${org.mapstruct.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
-            <version>1.4.2.Final</version>
+            <version>${org.mapstruct.version}</version>
         </dependency>
 
     </dependencies>
@@ -101,6 +109,26 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source> &lt;!&ndash; depending on your project &ndash;&gt;
+                    <target>11</target> &lt;!&ndash; depending on your project &ndash;&gt;
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                        &lt;!&ndash; other annotation processors &ndash;&gt;
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>-->
+
         </plugins>
     </build>
 

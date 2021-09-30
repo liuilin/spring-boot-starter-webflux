@@ -1,5 +1,6 @@
 package com.liumulin.webflux.test;
 
+import org.bson.types.ObjectId;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -16,8 +17,7 @@ public interface OrderConvert {
     OrderModel convertOrder2OrderModel(Order order);
 
     public static void main(String[] args) {
-        Order order = new Order();
-        order.setOrderNo("222");
+        Order order = Order.builder().userId(new ObjectId()).orderNo("22").userName("shit").build();
         OrderModel orderModel = OrderConvert.INSTANCE.convertOrder2OrderModel(order);
         System.out.println("orderModel = " + orderModel);
     }

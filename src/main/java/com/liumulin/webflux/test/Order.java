@@ -1,6 +1,9 @@
 package com.liumulin.webflux.test;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 
 /**
@@ -10,7 +13,9 @@ import org.bson.types.ObjectId;
  * @since 2021-09-28
  */
 @Data
-//@Builder
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Order {
 
     /**
