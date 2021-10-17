@@ -42,7 +42,7 @@ public class StudentController {
 
     // 对于 Spring-Data-JPA 中的 save()方法需要注意，若参数对象的 id 属性为 Null，则 save()
     // 为添加操作，底层执行 insert into 语句；若参数对象的 id 属性不为 Null，则 save()为修改操
-    // 作，底层执行 update 语句。
+    // 作，底层执行 update 语句.
     @PostMapping("/save")
     public Mono<Student> saveStudent(@Valid @RequestBody Student student) {
         ValidateUtils.validateName(student.getName());
@@ -84,7 +84,7 @@ public class StudentController {
      * 反应式 Web 开发框架 WebFlux方法，由 then()方法返回想返回的值。对于本例，由于 Spring-Data-JPA 的 delete()方法没
      * 有返回值，所以这里使用 then()为其添加返回值。
      *
-     * @param id
+     * @param id 主键 id
      * @return
      */
     @DeleteMapping("/delete/state/{id}")
