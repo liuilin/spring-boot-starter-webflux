@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.support.WebExchangeBindException;
 
 /**
- * 表示其为处理器切面，会被织入到处理器方法中.
+ * 表示其为处理器切面，会被织入到处理器方法中
  *
  * @author liuqiang
  * @since 2021-09-07
