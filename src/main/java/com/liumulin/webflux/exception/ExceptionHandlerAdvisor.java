@@ -14,6 +14,7 @@ import org.springframework.web.bind.support.WebExchangeBindException;
  */
 @ControllerAdvice
 public class ExceptionHandlerAdvisor {
+
     @ExceptionHandler
     public ResponseEntity<String> exHandler(WebExchangeBindException ex) {
         return new ResponseEntity<>(exToStr(ex), HttpStatus.BAD_REQUEST);
