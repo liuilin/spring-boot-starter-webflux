@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.support.WebExchangeBindException;
 
 /**
- * 表示其为处理器切面，会被织入到处理器方法中.
+ * 表示其为处理器切面，会被织入到处理器方法中
  *
  * @author liuqiang
  * @since 2021-09-07
  */
 @ControllerAdvice
 public class ExceptionHandlerAdvisor {
+
     @ExceptionHandler
     public ResponseEntity<String> exHandler(WebExchangeBindException ex) {
         return new ResponseEntity<>(exToStr(ex), HttpStatus.BAD_REQUEST);
