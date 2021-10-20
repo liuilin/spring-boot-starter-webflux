@@ -84,7 +84,7 @@ public class StudentController {
      * 反应式 Web 开发框架 WebFlux方法，由 then()方法返回想返回的值。对于本例，由于 Spring-Data-JPA 的 delete()方法没
      * 有返回值，所以这里使用 then()为其添加返回值。
      *
-     * @param id 主键 id
+     * @param id 主键 id.
      * @return
      */
     @DeleteMapping("/delete/state/{id}")
