@@ -42,7 +42,7 @@ public class StudentController {
 
     // 对于 Spring-Data-JPA 中的 save()方法需要注意，若参数对象的 id 属性为 Null，则 save()
     // 为添加操作，底层执行 insert into 语句；若参数对象的 id 属性不为 Null，则 save()为修改操
-    // 作，底层执行 update 语句.
+    // 作，底层执行 update 语句
     @PostMapping("/save")
     public Mono<Student> saveStudent(@Valid @RequestBody Student student) {
         ValidateUtils.validateName(student.getName());
