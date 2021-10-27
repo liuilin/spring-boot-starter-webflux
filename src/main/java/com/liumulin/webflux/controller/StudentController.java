@@ -101,7 +101,7 @@ public class StudentController {
      * 思路：
      * 若修改成功，则返回修改后的对象数据；若指定的 id 对象不存在，则返回 404
      * flatMap() 的作用是将查询出的 stu 对象经过操作后修改到 DB，然后返回修改过的对象因为 Spring-Data-JPA 的 save() 方法返回的是修改成功后的对象
-     * map() 的作用是将 stu 对象映 ResponseEntity 射为对象
+     * map() 的作用是将 stu 对象映 ResponseEntity 射为对象.
      */
     @PutMapping("/update/{id}")
     public Mono<ResponseEntity<Student>> updateStudent(@PathVariable("id") String id, @RequestBody Student student) {
