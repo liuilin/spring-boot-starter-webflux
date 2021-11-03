@@ -17,6 +17,6 @@ public class FunctionDemo {
 
         // 消费无返回值接口
         Consumer<String> consumer = System.out::println;
-        consumer.accept("shit.");
+        consumer.accept("shit");
     }
 }
