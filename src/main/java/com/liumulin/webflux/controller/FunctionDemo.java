@@ -9,7 +9,7 @@ import java.util.function.IntPredicate;
  */
 public class FunctionDemo {
     public static void main(String[] args) {
-        // 断言函数接口
+        // 断言函数接口x
 //        Predicate<Integer> predicate = i -> i > 0;
         // 和上面相同，优势是不用再写泛型.
         IntPredicate predicate = i -> i > 0;
