@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.stream.Stream;
 
 /**
- * 为什么要使用异步 servlet？同步 servlet 阻塞了什么
+ * 为什么要使用异步 servlet？同步 servlet 阻塞了什么x
  * 首先后端才有同步和异步的概念，而对于浏览器来说所有的都是同步
  * 同步阻塞的是 tomcat 的 servlet 线程，使用异步之后，tomcat 的 servlet 线程就会立马返回。然后处理下一个请求
  * 所以它可以用来处理高并发，把异步耗时操作交由线程池去处理
