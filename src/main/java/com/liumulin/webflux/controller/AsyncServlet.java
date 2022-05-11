@@ -40,7 +40,7 @@ public class AsyncServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // 业务代码处理完毕，通知结束.
+        // 业务代码处理完毕，通知结束
         ac.complete();
     }
 
